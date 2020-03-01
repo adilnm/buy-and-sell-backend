@@ -3,4 +3,8 @@ class PostsController < ApplicationController
         @posts=Post.all
         render json:{posts:@posts}
     end
+
+    def create
+        buebug
+    end
 end
