@@ -7,7 +7,7 @@ class PostsController < ApplicationController
     def create
         post=Post.new(post_params)
         if post.save
-            render json:{post:post}
+            render json:{posts:current_user.posts}
         else
             render json:{error:'not valid'}
         end

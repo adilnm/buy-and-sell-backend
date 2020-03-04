@@ -19,6 +19,7 @@ class SessionsController < ApplicationController
 
     def destroy
         session.clear
+        render json: {logged_in: false, error:'you need to log in'}
     end
 
     private
