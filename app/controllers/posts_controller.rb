@@ -1,13 +1,14 @@
 class PostsController < ApplicationController
     def index
         @posts=Post.all
-        render json:{posts:@posts}
+        render json:@posts
     end
 
     def create
         post=Post.new(post_params)
+        
         if post.save
-            render json:{posts:current_user.posts}
+            render json: post
         else
             render json:{error:'not valid'}
         end
@@ -15,6 +16,6 @@ class PostsController < ApplicationController
 
     private
     def post_params
-        params.require(:post).permit(:title, :description, :price, :user_id, :category_id)
+        params.require(:post).permit(:title, :description, :price, :user_id, :category_id, :image)
     end
 end
