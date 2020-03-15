@@ -18,8 +18,8 @@ class SessionsController < ApplicationController
     end
 
     def destroy
-        session.clear
-        render json: {logged_in: false, error:'you need to log in'}
+        reset_session
+        # render json: {logged_in: false, error:'you need to log in'}, status:200
     end
 
     private
