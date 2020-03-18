@@ -4,6 +4,7 @@ class UsersController < ApplicationController
     end
 
     def myPosts
+        byebug
         render json: current_user.posts
     end
 
