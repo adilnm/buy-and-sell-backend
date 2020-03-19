@@ -4,16 +4,16 @@ class UsersController < ApplicationController
     end
 
     def myPosts
-        byebug
         render json: current_user.posts
     end
 
     def create  
         user=User.new(user_params)
         if user.save
-            render json: {status: 'logged in', user:user}
+            
+            render json: {logged_in: true, user:user}
         else
-            render json: {status: 'not logged in', errors:user.errors.full_messages}
+            render json: {logged_in: false, errors:user.errors.full_messages}
         end
         
 

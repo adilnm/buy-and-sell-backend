@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
             session[:user_id]=user.id
             render json: {logged_in: true, user:user}
         else
-            render json: {logged_in: false}
+            render json: {logged_in: false, errors:"You have entered an invalid username and/or password"}
         end
     end
 
@@ -19,7 +19,6 @@ class SessionsController < ApplicationController
 
     def destroy
         reset_session
-        # render json: {logged_in: false, error:'you need to log in'}, status:200
     end
 
     private

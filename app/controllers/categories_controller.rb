@@ -1,6 +1,5 @@
 class CategoriesController < ApplicationController
     def show
-
         if params[:id]=="0"
             render json: Post.all
         else
