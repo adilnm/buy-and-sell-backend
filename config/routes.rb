@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :posts
   resources :categories
   resources :users, only:[:create,:show, :index]
+  root :to => 'posts#index'
   post 'sessions' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
   get 'loggedin' => 'sessions#is_logged_in?'
