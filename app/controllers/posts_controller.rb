@@ -6,7 +6,7 @@ class PostsController < ApplicationController
 
     def create
         post=Post.new(post_params)
-        
+        byebug
         if post.save
             render json: post
         else
